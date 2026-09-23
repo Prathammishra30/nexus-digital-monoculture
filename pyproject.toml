@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-digital-monoculture"
+version = "0.1.0"
+description = "NEXUS - Digital Monoculture & Systemic Risk Observatory"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "NEXUS Team" }
+]
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.0",
+    "python-dotenv>=1.0.1",
+    "neo4j>=5.18.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.3.0",
+    "black>=24.2.0",
+    "mypy>=1.9.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["backend*", "nexus_domain*", "discovery-engine*", "ai_engine*", "ai-engine*", "risk-engine*", "graph*"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests", "backend/tests", "ai-engine/tests"]
+addopts = ["--import-mode=importlib"]
+pythonpath = [
+    "."
+]
+asyncio_mode = "auto"

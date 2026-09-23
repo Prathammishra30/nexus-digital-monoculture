@@ -175,6 +175,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Frontend build and dependency output
+frontend/node_modules/
+frontend/.next/
+
 # pytype static type analyzer
 .pytype/
 

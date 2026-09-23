@@ -1,0 +1,1 @@
+"""Structured semantic transformation contracts."""

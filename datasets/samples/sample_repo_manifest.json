@@ -1,0 +1,21 @@
+{
+  "repository": "sample-org/fintech-app",
+  "ecosystem": "multi",
+  "scanned_at": "2026-09-23T00:00:00Z",
+  "manifests": {
+    "package.json": {
+      "dependencies": {
+        "express": "^4.18.2",
+        "stripe": "^14.0.0",
+        "@auth0/auth0-react": "^2.2.4",
+        "openai": "^4.28.0"
+      }
+    },
+    "requirements.txt": [
+      "boto3==1.34.40",
+      "pydantic>=2.6.0"
+    ],
+    "Dockerfile": "FROM node:20-alpine\nWORKDIR /app\nCOPY . .\nCMD [\"npm\", \"start\"]",
+    "main.tf": "provider \"aws\" { region = \"us-east-1\" }"
+  }
+}
